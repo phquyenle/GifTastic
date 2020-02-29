@@ -1,0 +1,25 @@
+body{
+    background-image: url(../images/background2.jpg);
+    background-repeat: no-repeat;
+  
+}
+
+
+.jumbotron{
+    background-image: url(../images/bobs.jpg);
+    text-align: center;
+      color: black;
+  
+}
+
+#title-description {
+    color: rgb(46, 29, 194);
+    font-weight: bold;
+}
+
+.intro {
+    font-weight: bolder;
+    color: whitesmoke;
+    background-color: grey;
+    margin-right: 700px;
+}
