@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var topics =["Bob Belcher","Linda Belcher", "Tina Belcher", "Gene Belcher", "Louise Belcher"];
     const thememusic= new Audio("assets/bobs-burgers-ringtone.mp3");
     var musicplaying= false;
     var results;
@@ -14,10 +15,32 @@ $(document).ready(function(){
             musicplaying = false;
         }
     });
-})
 
+    function arraybuttons(){
+        $("#bobsbuttons").empty();
+        for (var i=0; i<topics.length;i++) {
+            var but= $('<button>');
+            but.addClass("characterbtn");
+            but.attr('data-person', topics[i]);
+            but.text(topics[i]);
+            $("#bobsbuttons").append(but);
 
-$("button").on("click", function(){
+        };
+    };
+    //code for making new button when more characters are added
+    $("#addbutton").on("click", function(event){
+        event.preventDefault();
+        var newcharacter=$("#bobsinput").val().trim();
+        topics.push(newcharacter);
+        $("#bobsinput").val("");
+        arraybuttons();
+        console.log(topics);
+    });
+    arraybuttons();
+});
+
+//using some of the practice from class for this part of the code 
+$(document).on("click",".characterbtn", function(){
     var person=$(this).attr("data-person");
     //adding limit of 10 gifs
     var queryURL="https://api.giphy.com/v1/gifs/search?q=" + person +"&apikey=LNU9vZ1fEnoueTGgvpqZzKf0BLy1uK8Z&limit=10";
@@ -60,6 +83,14 @@ function GifPlay() {
         $(this).attr("data-state","still");
       };
       };
+// $("#addbutton").on("click", function(event){
+//     event.preventDefault();
+//     var newcharacter=$("#bobsinput").val().trim();
+//     topics.push(newcharacter);
+//     $("#bobsinput").val("");
+//     arraybuttons();
+//     console.log(topics);
+// });
+// arraybuttons();
 
-   
-    });
+});
