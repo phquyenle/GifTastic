@@ -8,11 +8,13 @@ $(document).ready(function(){
         if (musicplaying == false) {
             thememusic.play();
             musicplaying=true;
+         
 
         }
         else {
             thememusic.pause();
             musicplaying = false;
+    
         }
     });
 
@@ -37,6 +39,7 @@ $(document).ready(function(){
         console.log(topics);
     });
     arraybuttons();
+   
 });
 
 //using some of the practice from class for this part of the code 
@@ -68,12 +71,21 @@ $(document).on("click",".characterbtn", function(){
     personImage.on('click', GifPlay);
         }
     });
+//trying to add more gift when clicked on the button
+
+    // var addingmore= $("<button>");
+    // addingmore.addClass("moregiftsbtn");
+    // addingmore.text("Load more happiness");
+    // $("#moregifs").append(addingmore);
+// function MoreGifs(){
+// offset +=10;
+// moreGifs=true;
+// };
 
 function GifPlay() {
     var state=$(this).attr("data-state");
     console.log(state);
-    // var position=$(this).attr("data-position");
-    // position= parseInt(position);
+  
   if (state === "still") {
         $(this).attr("src", $(this).data('animate'));
         $(this).attr("data-state","animate");
@@ -83,14 +95,5 @@ function GifPlay() {
         $(this).attr("data-state","still");
       };
       };
-// $("#addbutton").on("click", function(event){
-//     event.preventDefault();
-//     var newcharacter=$("#bobsinput").val().trim();
-//     topics.push(newcharacter);
-//     $("#bobsinput").val("");
-//     arraybuttons();
-//     console.log(topics);
-// });
-// arraybuttons();
 
 });
